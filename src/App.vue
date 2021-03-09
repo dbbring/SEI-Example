@@ -1,20 +1,15 @@
 <template>
-  <v-app>
-      <Header />
-      <Sample-Layout/>
-  </v-app>
+  <Base-View />
 </template>
 
 <script>
-import Header from './components/Header';
-import SampleLayout from './components/SampleLayout';
+import BaseView from './views/BaseView';
 
 export default {
   name: 'App',
 
   components: {
-    Header,
-    SampleLayout
+    BaseView,
   },
 
   data: () => ({
