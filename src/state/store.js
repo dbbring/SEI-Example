@@ -1,13 +1,23 @@
-
+import Vue from 'vue'
 import Vuex from 'vuex'
+
+Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    currentSideBarMenu: 0
+    todos: [],
+    users: [],
+    albums: [],
   },
   mutations: {
-    changeMenuIndex (state, newIndex) {
-      state.currentSideBarMenu = newIndex;
+    pushTodo (state, newTodo) {
+      state.todos.push(newTodo);
+    },
+    pushUser (state, newUser) {
+      state.users.push(newUser);
+    },
+    pushAlbum (state, newAlbum) {
+      state.albums.push(newAlbum);
     }
   }
 })

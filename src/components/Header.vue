@@ -14,6 +14,7 @@
         <v-btn
           v-for="link in links"
           :key="link"
+          @click="dialog = true"
           text
         >
           {{ link }}
@@ -31,14 +32,22 @@
           ></v-text-field>
         </v-responsive>
       </v-container>
+      <Warning-Dialog :dialog="dialog" @close="dialog = false"/>
     </v-app-bar>
 </template>
 
 <script>
+  import WarningDialog from './WarningDialog'
+
   export default {
     name: 'Header',
 
+    components: {
+      WarningDialog,
+    },
+
     data: () => ({
+      dialog: false,
       links: [
         'Dashboard',
         'Messages',

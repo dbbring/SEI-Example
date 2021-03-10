@@ -11,13 +11,13 @@
               <!-- 
                 TODO: Get rid of hard code here and dynamically set component
               -->
-              <div v-if="currentMenuIndex === 0">
+              <div class="pt-2" v-if="currentMenuIndex === 0">
                 <Todos />
               </div>
-              <div v-else-if="currentMenuIndex === 1">
+              <div class="pt-2" v-else-if="currentMenuIndex === 1">
                 <Albums />
               </div>
-              <div v-else-if="currentMenuIndex === 2">
+              <div class="pt-2" v-else-if="currentMenuIndex === 2">
                 <Users />
               </div>
             </v-sheet>
@@ -28,6 +28,8 @@
 </template>
 
 <script>
+  import axios from 'axios'
+
   import SideBar from '../SideBar';
   import Albums from './Albums';
   import Todos from './Todos';
@@ -57,5 +59,25 @@
         this.currentMenuIndex = newIndex;
       }
     },
+
+    created() {
+      if (!this.$store.state.todos.length) {
+        axios.get('https://jsonplaceholder.typicode.com/todos').then((res)=> {
+          res.data.forEach(todo => this.$store.commit('pushTodo', todo))
+        });
+      }
+
+      if (!this.$store.state.users.length) {
+        axios.get('https://jsonplaceholder.typicode.com/users').then((res)=> {
+          res.data.forEach(user => this.$store.commit('pushUser', user))
+        });
+      }
+
+      if (!this.$store.state.albums.length) {
+        axios.get('https://jsonplaceholder.typicode.com/albums').then((res)=> {
+          res.data.forEach(album => this.$store.commit('pushAlbum', album))
+        });
+      }
+    }
   }
 </script>

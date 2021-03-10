@@ -1,15 +1,22 @@
 <template>
   <div>
-    <div v-for="n in 24"
-      :key="n">
-      <v-checkbox
-      :label="`Checkbox ${n}`"
+      <v-card 
+      class="my-3 mx-2 pl-2"
+      elevation="2"
+      outlined
+      shaped
+      v-for="(todo, key) in $store.state.todos"
+      :key="key" >
+        <v-checkbox
+        v-model="todo.completed"
+      :label="`Checkbox ${todo.title}`"
     ></v-checkbox>
-    </div>
+      </v-card>
   </div>
 </template>
 
 <script>
+
   export default {
     name: 'Todos',
 
