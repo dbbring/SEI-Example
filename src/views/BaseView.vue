@@ -1,7 +1,7 @@
 <template>
   <v-app>
-      <Header />
-      <Sample-Layout/>
+    <Header />
+    <Sample-Layout />
   </v-app>
 </template>
 
@@ -14,7 +14,7 @@ export default {
 
   components: {
     Header,
-    SampleLayout
+    SampleLayout,
   },
 
   data: () => ({

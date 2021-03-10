@@ -1,27 +1,27 @@
 <template>
   <div>
-      <v-card 
+    <v-card
       class="my-3 mx-2 pl-2"
       elevation="2"
       outlined
       shaped
       v-for="(todo, key) in $store.state.todos"
-      :key="key" >
-        <v-checkbox
+      :key="key"
+    >
+      <v-checkbox
         v-model="todo.completed"
-      :label="`Checkbox ${todo.title}`"
-    ></v-checkbox>
-      </v-card>
+        :label="`Checkbox ${todo.title}`"
+      ></v-checkbox>
+    </v-card>
   </div>
 </template>
 
 <script>
+export default {
+  name: 'Todos',
 
-  export default {
-    name: 'Todos',
-
-    data: () => ({
-     //
-    }),
-  }
+  data: () => ({
+    //
+  }),
+};
 </script>

@@ -1,7 +1,7 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from 'vue';
+import Vuex from 'vuex';
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
@@ -10,16 +10,16 @@ const store = new Vuex.Store({
     albums: [],
   },
   mutations: {
-    pushTodo (state, newTodo) {
+    pushTodo(state, newTodo) {
       state.todos.push(newTodo);
     },
-    pushUser (state, newUser) {
+    pushUser(state, newUser) {
       state.users.push(newUser);
     },
-    pushAlbum (state, newAlbum) {
+    pushAlbum(state, newAlbum) {
       state.albums.push(newAlbum);
-    }
-  }
-})
+    },
+  },
+});
 
-export default store
+export default store;
